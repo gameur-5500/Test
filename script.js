@@ -9,7 +9,7 @@ class animes {
     }
 }
 
-let OnePiece = new animes ('One Piece', 21, 1043, true);
+let OnePiece = new animes ('One Piece', 21, 1049, true);
 let DemonSlayer = new animes ('Demon Slayer', 2, 40, true);
 let Naruto = new animes ('Naruto', 22, 209, true);
 let NarutoShippuden = new animes ('Naruto Shippuden', 21, 246, false);
@@ -24,6 +24,52 @@ let animesOrder = [
     NarutoShippuden,
     Bleach,
 ];
+
+
+// What you watched
+
+let ParagraphText = "";
+
+function WatchedParagraph() {
+    let watched = OnePiece.watched && Naruto.watched && NarutoShippuden.watched && Bleach.watched && DemonSlayer.watched;
+    if (watched) {
+        ParagraphText = "You watched the animes :D"
+    }
+    else{
+        FirstPartParagraphText = "You didn't watch all the animes"
+        let noneWatched = [ 
+            !OnePiece.watched, 
+            !DemonSlayer.watched,
+            !Naruto.watched, 
+            !NarutoShippuden.watched, 
+            !Bleach.watched, 
+        ];
+            
+        let order = 0;
+        let AnimesNotWatched = "";
+        let numberOfAnimes = 0;
+        if (order <= 5){
+            if (noneWatched[order]){
+                order++;
+                if (numberOfAnimes = 1) {
+                    AnimesNotWatched =+ 'and' + animesOrder[order].title;
+                    numberOfAnimes++;
+                }
+                
+                else{
+                    AnimesNotWatched =+ animesOrder[order].title;
+                    numberOfAnimes++;
+                }
+             }
+             else {
+                 order++
+             }
+        }
+        else{
+            order = 0;
+        }
+    }
+}
 
 // mix
 
@@ -47,3 +93,4 @@ function showAnimes() {
         let watched = anime.watched;
     }
 }
+
