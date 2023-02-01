@@ -33,10 +33,6 @@ let ParagraphText = "";
 function WatchedParagraph() {
     let watched = OnePiece.watched && Naruto.watched && NarutoShippuden.watched && Bleach.watched && DemonSlayer.watched;
     if (watched) {
-        ParagraphText = "You watched the animes :D"
-    }
-    else{
-        FirstPartParagraphText = "You didn't watch all the animes"
         let noneWatched = [ 
             !OnePiece.watched, 
             !DemonSlayer.watched,
@@ -55,7 +51,6 @@ function WatchedParagraph() {
                     AnimesNotWatched =+ 'and' + animesOrder[order].title;
                     numberOfAnimes++;
                 }
-                
                 else{
                     AnimesNotWatched =+ animesOrder[order].title;
                     numberOfAnimes++;
@@ -68,6 +63,10 @@ function WatchedParagraph() {
         else{
             order = 0;
         }
+        let WatchedParagraphText = "You didn't watch " + AnimesNotWatched;
+    }
+    else{
+        WatchedParagraphText = "You watched the animes :D";
     }
 }
 
