@@ -1,4 +1,4 @@
-// class
+// animes proprities section
 
 class animes {
     constructor(title, seasons, episodes, watched){
@@ -15,8 +15,6 @@ let Naruto = new animes ('Naruto', 22, 209, true);
 let NarutoShippuden = new animes ('Naruto Shippuden', 21, 246, false);
 let Bleach = new animes ('Bleach', 24, 3, false);
 
-// table
-
 let animesOrder = [    
     OnePiece,
     DemonSlayer,
@@ -25,22 +23,43 @@ let animesOrder = [
     Bleach,
 ];
 
+// Show animes section
+
+function showAnimes() {
+    let order = 0;
+    let maxAnimes = animesOrder.length;
+    if (order < maxAnimes) {
+       let anime = animesOrder[order];
+       order++
+       let title = anime.title;
+       let seasons = anime.seasons;
+       let episodes = anime.episodes;
+       let watched = anime.watched;
+    }
+    else{
+        let anime = animesOrder[order];
+        order = 0;
+        let title = anime.title;
+        let seasons = anime.seasons;
+        let episodes = anime.episodes;
+        let watched = anime.watched;
+    }
+}
 
 // What you watched
 
-let ParagraphText = "";
+let WatchedParagraphText = "";
 
 function WatchedParagraph() {
     let watched = OnePiece.watched && Naruto.watched && NarutoShippuden.watched && Bleach.watched && DemonSlayer.watched;
     if (watched) {
         let noneWatched = [ 
-            !OnePiece.watched, 
-            !DemonSlayer.watched,
-            !Naruto.watched, 
-            !NarutoShippuden.watched, 
-            !Bleach.watched, 
-        ];
-            
+            !animesOrder[0].watched, 
+            !animesOrder[1].watched,
+            !animesOrder[2].watched, 
+            !animesOrder[3].watched, 
+            !animesOrder[4].watched, 
+        ];     
         let order = 0;
         let AnimesNotWatched = "";
         let numberOfAnimes = 0;
@@ -69,27 +88,3 @@ function WatchedParagraph() {
         WatchedParagraphText = "You watched the animes :D";
     }
 }
-
-// mix
-
-function showAnimes() {
-    let order = 0;
-    let maxAnimes = animesOrder.length;
-    if (order < maxAnimes) {
-       let anime = animesOrder[order];
-       order++
-       let title = anime.title;
-       let seasons = anime.seasons;
-       let episodes = anime.episodes;
-       let watched = anime.watched;
-    }
-    else{
-        let anime = animesOrder[order];
-        order = 0;
-        let title = anime.title;
-        let seasons = anime.seasons;
-        let episodes = anime.episodes;
-        let watched = anime.watched;
-    }
-}
-
