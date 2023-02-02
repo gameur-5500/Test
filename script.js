@@ -53,38 +53,38 @@ let WatchedParagraphText = "";
 function WatchedParagraph() {
     let watched = OnePiece.watched && Naruto.watched && NarutoShippuden.watched && Bleach.watched && DemonSlayer.watched;
     if (watched) {
-        let noneWatched = [ 
-            !animesOrder[0].watched, 
-            !animesOrder[1].watched,
-            !animesOrder[2].watched, 
-            !animesOrder[3].watched, 
-            !animesOrder[4].watched, 
-        ];     
+       WatchedParagraphText = "You watched the animes :D";
+    }
+    else{    
         let order = 0;
         let AnimesNotWatched = "";
         let numberOfAnimes = 0;
         if (order <= 5){
-            if (noneWatched[order]){
-                order++;
-                if (numberOfAnimes = 1) {
-                    AnimesNotWatched =+ 'and' + animesOrder[order].title;
+            if (!animesOrder[order].watched){
+                if (numberOfAnimes === 0){
+                  AnimesNotWatched = animesOrder[order].title;
+                  numberOfAnimes++;
+                }
+                else if (numberOfAnimes == 1) {
+                    AnimesNotWatched += "and " + animesOrder[order].title;
                     numberOfAnimes++;
                 }
                 else{
                     AnimesNotWatched =+ animesOrder[order].title;
                     numberOfAnimes++;
                 }
+              order++;
              }
              else {
-                 order++
+                 order++;
              }
         }
         else{
             order = 0;
         }
-        let WatchedParagraphText = "You didn't watch " + AnimesNotWatched;
+         WatchedParagraphText = "You didn't watch " + AnimesNotWatched;      
     }
-    else{
-        WatchedParagraphText = "You watched the animes :D";
-    }
+  
+  return WatchedParagraphText;
+  
 }
