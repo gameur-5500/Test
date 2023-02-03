@@ -57,10 +57,9 @@ function WatchedParagraph() {
      WatchedParagraphText = "You watched the animes :D";
   }
   else{    
-      let AnimesNotWatched = "";
-      let maxOrder = animesOrder.length
+      let AnimesNotWatched;
       let numberOfAnimes = 0;
-      for (let order = 0; order <= maxOrder; order++) {
+      for (let order in animesOrder) {
         if (!animesOrder[order].watched){
           switch (numberOfAnimes){
             case 0:
@@ -70,11 +69,15 @@ function WatchedParagraph() {
             case 1:
               AnimesNotWatched += " and " + animesOrder[order].title;
               numberOfAnimes++;
-            break;
-            case moreThanTwo :
-             AnimesNotWatched += " and " + animesOrder[order].title;
-             numberOfAnimes++;
+            break; 
+            case 2 :
+            AnimesNotWatched += " and " + animesOrder[order].title;
+            numberOfAnimes++;
             break;  
+            case +2  :
+            AnimesNotWatched += " and " + animesOrder[order].title;
+            numberOfAnimes++;
+            break;   
         }
        } 
       }  
@@ -84,5 +87,6 @@ function WatchedParagraph() {
 return WatchedParagraphText;
 
 }
+
 
 console.log(WatchedParagraph());
