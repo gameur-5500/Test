@@ -1,4 +1,4 @@
-// animes proprities section
+// Animes Variables Section
 
 class animes {
     constructor(title, seasons, episodes, watched){
@@ -23,7 +23,7 @@ let animesOrder = [
     Bleach,
 ];
 
-// Show animes section
+// Test Section
 
 function showAnimes() {
     let order = 0;
@@ -46,49 +46,43 @@ function showAnimes() {
     }
 }
 
-// What you watched
+// Watched Section 
 
 let WatchedParagraphText = "";
 let moreThanTwo = +2 ;
 
 function WatchedParagraph() {
-    let watched = OnePiece.watched && Naruto.watched && NarutoShippuden.watched && Bleach.watched && DemonSlayer.watched;
-    if (watched) {
-       WatchedParagraphText = "You watched the animes :D";
-    }
-    else{    
-        let order = 0;
-        let AnimesNotWatched = "";
-        let numberOfAnimes = 3;
+  let watched = OnePiece.watched && Naruto.watched && NarutoShippuden.watched && Bleach.watched && DemonSlayer.watched;
+  if (watched) {
+     WatchedParagraphText = "You watched the animes :D";
+  }
+  else{    
+      let AnimesNotWatched = "";
+      let maxOrder = animesOrder.length
+      let numberOfAnimes = 0;
+      for (let order = 0; order <= maxOrder; order++) {
         if (!animesOrder[order].watched){
-          if (order <= 4){
           switch (numberOfAnimes){
             case 0:
               AnimesNotWatched = animesOrder[order].title;
               numberOfAnimes++;
-              order++;
             break;
             case 1:
-              AnimesNotWatched += "and " + animesOrder[order].title;
+              AnimesNotWatched += " and " + animesOrder[order].title;
               numberOfAnimes++;
-              order++;
             break;
             case moreThanTwo :
-             AnimesNotWatched += animesOrder[order].title;
+             AnimesNotWatched += " and " + animesOrder[order].title;
              numberOfAnimes++;
-             order++;
-            break;
-         }
+            break;  
         }
-       }   
-       else {
-         order = 0;
-       }
-         WatchedParagraphText = "You didn't watch " + AnimesNotWatched;      
-    }
-  
-  return WatchedParagraphText;
-  
+       } 
+      }  
+       WatchedParagraphText = "You didn't watch " + AnimesNotWatched;      
+  }
+
+return WatchedParagraphText;
+
 }
 
 console.log(WatchedParagraph());
