@@ -49,44 +49,40 @@ function showAnimes() {
 // Watched Section 
 
 let WatchedParagraphText = "";
-let moreThanTwo = +2 ;
+let moreThanTwo = 2 ;
 
 function WatchedParagraph() {
-  let watched = OnePiece.watched && Naruto.watched && NarutoShippuden.watched && Bleach.watched && DemonSlayer.watched;
-  if (watched) {
-     WatchedParagraphText = "You watched the animes :D";
-  }
-  else{    
-      let AnimesNotWatched;
-      let numberOfAnimes = 0;
-      for (let order in animesOrder) {
-        if (!animesOrder[order].watched){
-          switch (numberOfAnimes){
-            case 0:
-              AnimesNotWatched = animesOrder[order].title;
-              numberOfAnimes++;
-            break;
-            case 1:
+    let watched = OnePiece.watched && Naruto.watched && NarutoShippuden.watched && Bleach.watched && DemonSlayer.watched;
+    if (watched) {
+       WatchedParagraphText = "You watched the animes :D";
+    }
+    else{    
+        let AnimesNotWatched;
+        let numberOfAnimes = 0;
+        for (let order in animesOrder) {
+          if (!animesOrder[order].watched){
+            switch (numberOfAnimes){
+              case 0:
+                AnimesNotWatched = animesOrder[order].title;
+                numberOfAnimes++;
+              break;
+              case 1:
+                AnimesNotWatched += " and " + animesOrder[order].title;
+                numberOfAnimes++;
+              break; 
+              case moreThanTwo :
               AnimesNotWatched += " and " + animesOrder[order].title;
               numberOfAnimes++;
-            break; 
-            case 2 :
-            AnimesNotWatched += " and " + animesOrder[order].title;
-            numberOfAnimes++;
-            break;  
-            case +2  :
-            AnimesNotWatched += " and " + animesOrder[order].title;
-            numberOfAnimes++;
-            break;   
-        }
-       } 
-      }  
-       WatchedParagraphText = "You didn't watch " + AnimesNotWatched;      
-  }
-
-return WatchedParagraphText;
-
+              moreThanTwo++;
+              break;  
+          }
+         } 
+        }  
+         WatchedParagraphText = "You didn't watch " + AnimesNotWatched;      
+    }
+  
+  return WatchedParagraphText;
+  
 }
-
 
 console.log(WatchedParagraph());
